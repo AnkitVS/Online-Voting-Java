@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Sign Up</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/signup-style.css">
+<script src="https://kit.fontawesome.com/588fa32905.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Montserrat'
+	rel='stylesheet' type='text/css'>
+<script src="js/up-script.js"></script>
+</head>
+
+<body>
+	<header>
+		<div class="navbar-logo">
+			<a href="land.html">Home</a>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="reg.html">Vote</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div class="signup-box">
+			<p class="cap">SIGN UP</p>
+			<form name="form" action="SignUpStore" method="post"
+				onSubmit="return validation(event);">
+				<div class="form-control" id="form-item1">
+					<label><b>Name</b></label> <input type="text" class="inp-field"
+						placeholder="Enter Full Name" id="fname" name="fname"> <i
+						class="fas fa-check-circle"></i> <i
+						class="fas fa-exclamation-circle"></i> <small>Error
+						message</small>
+				</div>
+
+				<div class="form-control" id="form-item2">
+					<label><b>Contact Number</b></label> <input type="tel"
+						class="inp-field" placeholder="Enter Mobile Number" id="mnum"
+						name="mnum"> <i class="fas fa-check-circle"></i> <i
+						class="fas fa-exclamation-circle"></i> <small>Error
+						message</small>
+				</div>
+
+				<div class="form-control" id="form-item3">
+					<label><b>Date of Birth</b></label> <input type="date"
+						class="inp-field" id="dob" name="dob"> <i
+						class=" fas fa-check-circle"></i> <i
+						class="fas fa-exclamation-circle"></i> <small>Error
+						message</small>
+				</div>
+
+				<div class="form-control" id="form-item4">
+					<label><b>Email</b></label> <input type="email" class="inp-field"
+						placeholder="Enter Email" id="email" name="email"> <i
+						class=" fas fa-check-circle"></i> <i
+						class="fas fa-exclamation-circle"></i> <small>Error
+						message</small>
+				</div>
+
+				<div class="form-control" id="form-item5">
+					<label><b>Password</b></label> <input type="password"
+						class="inp-field" placeholder="Enter Password" id="psw" name="psw">
+					<i class=" fas fa-check-circle"></i> <i
+						class="fas fa-exclamation-circle"></i> <small>Error
+						message</small>
+				</div>
+
+				<div class="form-control" id="form-item6">
+					<label><b>Repeat Password</b></label> <input type="password"
+						class="inp-field" placeholder="Repeat Password" id="psw-repeat"
+						name="psw-repeat"> <i class=" fas fa-check-circle"></i> <i
+						class="fas fa-exclamation-circle"></i> <small>Error
+						message</small>
+				</div>
+
+				<div class="form-control" id="form-item7">
+					<label for="file"><b>Verification Document</b></label> <input
+						type="file" class="inp-field" name="vfile">
+				</div>
+				<div class="form-control" id="form-item8">
+					<select id="role" name="role">
+						<option value="admin">ADMIN</option>
+						<option value="voter">Voter</option>
+						<option value="candid">Candidate</option>
+					</select>
+				</div>
+				<button type="submit" class="signup">Sign Up</button>
+			</form>
+		</div>
+	</main>
+	<footer>
+		<div class="container">
+			<div class="copy">
+				<p>Copyright &copy; Ankit Ved 2020</p>
+				<span>
+					<ul>
+						<li><a href="https://github.com/AnkitVS"><i
+								class="fab fa-github-alt"></i></a></li>
+						<li><a href="https://www.linkedin.com/in/ankit-ved-ashm/"><i
+								class="fab fa-linkedin-in"></i></a></li>
+					</ul>
+				</span>
+			</div>
+		</div>
+	</footer>
+	<script src="js/up-script.js"></script>
+</body>
+
+</html>

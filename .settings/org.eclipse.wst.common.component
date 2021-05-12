@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+        
+    <wb-module deploy-name="OnlineVoting">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/pac" source-path="/src/org"/>
+                
+        <property name="context-root" value="OnlineVoting"/>
+                
+        <property name="java-output-path" value="/OnlineVoting/build/classes"/>
+            
+    </wb-module>
+    
+</project-modules>

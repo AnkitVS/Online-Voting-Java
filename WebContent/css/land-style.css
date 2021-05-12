@@ -1,0 +1,404 @@
+@import
+	url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap')
+	;
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@700&display=swap')
+	;
+
+@import
+	url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap")
+	;
+
+@import
+	url("https://fonts.googleapis.com/css2?family=Rokkitt:wght@700&display=swap")
+	;
+
+@import
+	url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+/*-------Header------ START------*/
+header {
+	transition: all 0.3s ease 0s;
+	background: #000;
+	width: 100%;
+	height: 50px;
+}
+
+header .navbar-logo {
+	display: inline-block;
+	padding: 10px 30px;
+}
+
+header .navbar-logo a, nav ul li a {
+	color: #fff;
+	font-family: "Rokkitt", sans-serif;
+	text-decoration: none;
+	font-size: 30px;
+}
+
+nav {
+	float: right;
+	height: 45px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+nav ul {
+	list-style-type: none;
+	list-style: none;
+	color: #fff;
+}
+
+nav ul li a:hover, .navbar-logo a:hover {
+	color: red;
+}
+/*-------Header ------END------*/
+/* -----Main Style------START------- */
+main {
+	width: 100%;
+}
+/*-------Image Banner Start------*/
+main .container {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+main .container .slider {
+	width: 1000px;
+	max-width: 100%;
+	height: 400px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	opacity: 0.8;
+	animation: slide 10s ease-in running alternate-reverse infinite forwards;
+}
+
+@keyframes slide { 
+	0%{
+	background-image: url(../img/img1.jpg);
+}
+
+16.67%{
+	background-image: url(../img/img1.jpg);
+}
+
+16.68%{
+	background-image: url(../img/img2.jpg);
+}
+
+32.84%{
+	background-image: url(../img/img2.jpg);
+}
+
+32.85%{
+	background-image: url(../img/img3.jpg);
+}
+
+49.51%{
+	background-image: url(../img/img3.jpg);
+}
+
+49.52%{
+	background-image: url(../img/img4.jpg);
+}
+
+66.18%{
+	background-image: url(../img/img4.jpg);
+}
+
+66.19%{
+	background-image: url(../img/img5.jpg);
+}
+
+82.85%{
+	background-image: url(../img/img5.jpg);
+}
+
+82.86%{
+	background-image: url(../img/img6.jpg);
+}
+
+100%{
+background-image: url(../img/img6.jpg);
+}
+}
+/*-------Image Banner End------*/
+
+/*-------------NEWS START------------*/
+.news {
+	width: 100%;
+	height: 40px;
+	position: relative;
+}
+
+.news-head {
+	position: absolute;
+	background-color: #023788;
+	color: aliceblue;
+	padding: 10px;
+	z-index: 2;
+	font-weight: 900;
+	font-size: 25px;
+}
+
+.news-head::before, .news-head::after {
+	content: "";
+	position: absolute;
+	border: 25px solid;
+	z-index: -1;
+}
+
+.news-head::before {
+	border-color: #023788 transparent transparent transparent;
+	right: -25px;
+	top: 0;
+}
+
+.news-head::after {
+	border-color: transparent transparent #023788 transparent;
+	right: -25px;
+	bottom: 0;
+}
+
+.news-content {
+	position: relative;
+	overflow: hidden;
+	text-transform: uppercase;
+	color: #d2dbe9;
+	background: #880202;
+}
+
+.news-content p {
+	overflow: hidden;
+	font-size: 16px;
+	transform: translateX(100%);
+	animation: mymove 9s infinite linear;
+}
+
+@keyframes mymove { 
+	0% {
+	transform: translateX(100%);
+}
+
+100%
+{
+	transform:translateX(-100%);
+}
+}
+
+/*-------------NEWS END------------*/
+.item {
+	box-sizing: border-box;
+	padding: 30px;
+	margin-top: 10px;
+	width: 100%;
+	height: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.item-1, .item-2, .item-3 {
+	margin-right: 10px;
+	border-radius: 20px;
+	height: 100%;
+	width: 35%;
+	transition: 1ms ease-out 5ms;
+	padding: 20px;
+}
+
+.item-1:hover, .item-2:hover, .item-3:hover {
+	box-shadow: 0 5px 10px rgba(95, 91, 91, 0.158);
+}
+/* -----Main Style------END------- */
+
+/* ---------Footer Style----------- START ------*/
+footer {
+	background: black;
+	position: relative;
+	width: 100%;
+	font-family: 'Poppins', sans-serif;
+	box-sizing: border-box;
+	border: rgb(0, 0, 0) solid 10px;
+}
+
+footer .container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+
+footer .container div h2 {
+	position: relative;
+	color: #fff;
+	font-weight: 1000;
+}
+
+footer .container div h2:before {
+	content: "";
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+	width: 10px;
+	height: 2px;
+	background: #f00;
+	border-radius: 20px;
+}
+
+footer .container .qlinks {
+	position: relative;
+	width: 25%;
+	height: 100%;
+}
+
+footer .container .qlinks ul li {
+	list-style: none;
+}
+
+footer .container .qlinks ul li a {
+	color: #999;
+	text-decoration: none;
+	margin-bottom: 10px;
+	display: inline-block;
+	transition: 0.5 ease;
+}
+
+footer .container .qlinks ul li a:hover {
+	color: #ede7f6;
+}
+
+/*--------Quick Links Style ---End------------------*/
+/*--------Contact Style ---Start------------------*/
+footer .container .contact {
+	width: 50%;
+}
+
+footer .container .contact form {
+	position: relative;
+}
+
+footer .container .contact form div {
+	display: flex;
+	color: #686868;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 2px;
+}
+
+footer .container .contact form div input[type="text"] {
+	background-color: #68686800;
+	border: none;
+	transition: 400ms ease;
+	border-radius: 20px;
+	padding: 4px;
+	width: 200px;
+	margin-left: 5px;
+}
+
+footer .container .contact form div input:hover, footer .container .contact form div input:focus
+	{
+	background-color: #c9c9c9ce;
+}
+
+footer .container .contact form div input[type="submit"] {
+	background-color: #68686800;
+	color: #fff;
+	padding: 5px;
+	width: 70px;
+	border-radius: 40px;
+	border: none;
+	transition: 500ms ease;
+	font-size: 16px;
+}
+
+footer .container .contact form div input[type="submit"]:hover, footer .container .contact form div input[type="submit"]:focus
+	{
+	background-color: #c9c9c9ce;
+	letter-spacing: 1px;
+	color: rgba(207, 49, 49, 0.781);
+	font-weight: 600;
+}
+
+footer .container .contact form div textarea {
+	position: relative;
+	background-color: #68686800;
+	border: none;
+	transition: 400ms ease;
+	border-radius: 10px;
+	padding: 4px;
+	font-family: inherit;
+}
+
+footer .container .contact form div textarea:hover, footer .container .contact form div textarea:focus
+	{
+	background-color: #c9c9c9ce;
+}
+
+/*--------Contact Style ---End------------------*/
+/*--------Copy Style ---Start------------------*/
+footer .container .copy {
+	background-color: #6868683a;
+	bottom: 0;
+	width: 100%;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
+}
+
+footer .container .copy p {
+	color: #999;
+}
+
+footer .container .copy ul {
+	display: flex;
+}
+
+footer .container .copy ul li {
+	list-style: none;
+}
+
+footer .container .copy ul li a {
+	width: 30px;
+	height: 25px;
+	background: #686868;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 10px;
+	text-decoration: none;
+	border-radius: 2px;
+	transition: 0.5s ease-in;
+}
+
+footer .container .copy ul li a:hover {
+	background: #f00;
+}
+
+footer .container .copy ul li a .fab {
+	color: #fff;
+	font-size: 20px;
+}
+
+/*--------Copy Style ---End------------------*/
+/*--------Footer Style ---END------------------*/

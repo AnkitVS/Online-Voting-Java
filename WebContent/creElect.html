@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link href="css/creElec.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/elect-script.js"></script>
+<script src="https://kit.fontawesome.com/588fa32905.js"></script>
+</head>
+
+<body>
+	<header>
+		<div class="navbar-logo">
+			<a href="land.html">Home</a>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="reg.html">Vote</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div class="container">
+			<form name="form" id="form" method="post" action="createElect"
+				onSubmit="return validation(event);">
+				<div>
+					<label for="elname" id="lname">Name</label> <input type="text"
+						id="elname" name="elname">
+				</div>
+				<div class="btn">
+					<button type="submit" class="crea elec">Create Election</button>
+					<button type="button" class="back"
+						onclick="location.href='admin-dash.html'">
+						Back</a>
+					</button>
+				</div>
+				<p id="msg"
+					style="color: red; font-style: italic; font-size: small; margin: 50px;"></p>
+			</form>
+		</div>
+	</main>
+	<footer>
+        <div class="container">
+            <div class="copy">
+                <p>Copyright &copy; Ankit Ved 2020</p>
+                <span>
+                    <ul>
+                        <li><a href="https://github.com/AnkitVS"><i class="fab fa-github-alt"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/ankit-ved-ashm/"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

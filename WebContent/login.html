@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+<title>Login Page</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/login-style.css">
+<link href='https://fonts.googleapis.com/css?family=Montserrat'
+	rel='stylesheet' type='text/css'>
+<script src="https://kit.fontawesome.com/588fa32905.js"></script>
+<script type="text/javascript" src="js/log-script.js"></script>
+</head>
+
+<body>
+	<header>
+		<div class="navbar-logo">
+			<a href="land.html">Home</a>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="reg.html">Vote</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div class="login-box">
+			<div class="heading">
+				<div class="login" data-text="Log In">Log In</div>
+			</div>
+			<form name="form" id="form" method="post" action="login"
+				onSubmit="return validation(event);">
+				<div class="form-control">
+					<label for="username"><b>Username</b></label> <input type="text"
+						id="username" class="inp-field" name="username" /> <i
+						class="fas fa-check-circle"></i> <i
+						class="fas fa-exclamation-circle"></i> <small>Error
+						message</small>
+				</div>
+				<div class="form-control">
+					<label for="password" style="color: aliceblue;"><b>Password</b></label>
+					<input type="password" id="password" class="inp-field"
+						name="password" /> <i class="fas fa-check-circle"></i> <i
+						class="fas fa-exclamation-circle"></i> <small>Error
+						message</small>
+				</div>
+				<button type="submit" class="signin">Sign In</button>
+			</form>
+		</div>
+	</main>
+	<footer>
+		<div class="container">
+			<div class="copy">
+				<p>Copyright &copy; Ankit Ved 2020</p>
+				<span>
+					<ul>
+						<li><a href="https://github.com/AnkitVS"><i
+								class="fab fa-github-alt"></i></a></li>
+						<li><a href="https://www.linkedin.com/in/ankit-ved-ashm/"><i
+								class="fab fa-linkedin-in"></i></a></li>
+					</ul>
+				</span>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>
