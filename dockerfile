@@ -1,4 +1,4 @@
-FROM openjdk:11-alpine
+FROM eclipse-temurin:latest
 
 # Copy the project files to the container
 COPY target/Online-Voting-Java.war /usr/local/tomcat/webapps/
