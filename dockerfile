@@ -1,10 +1,15 @@
-FROM tomcat:latest
+FROM ubuntu:latest AS build
 
-# Copy the compiled classes from the build directory
-COPY build/classes/org/Voting /usr/local/tomcat/webapps/
+RUN apt-get update
+RUN apt-get install openjdk-17-jdk -y
+COPY . .
 
-# Expose the Tomcat port
+RUN ./gradlew bootJar --no-daemon
+
+FROM openjdk:17-jdk-slim
+
 EXPOSE 8080
 
-# Run Tomcat
-CMD ["catalina.sh", "run"]
+COPY --from=build /build/libs/demo-1.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
