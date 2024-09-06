@@ -46,18 +46,18 @@
 
 						Connection connection = DBCon.initializeDatabase();
 
-						preparedStatement = connection.prepareStatement("select name,electid from election");
+						preparedStatement = connection.prepareStatement("select name,electionid from election");
 						ResultSet rs = preparedStatement.executeQuery();
 
 						while (rs.next()) {
 
-							eid = rs.getString("electid");
+							eid = rs.getString("electionid");
 					%>
 					<td><%=rs.getString("name")%></td>
 					<td><%=eid%></td>
 					<td>
 						<%
-							preparedStatement = connection.prepareStatement("select status from candidate where cid=? and electid=?");
+							preparedStatement = connection.prepareStatement("select status from candidate where CandidateID=? and electionid=?");
 						preparedStatement.setString(1, cid);
 						preparedStatement.setString(2, eid);
 						ResultSet rst = preparedStatement.executeQuery();
@@ -67,7 +67,7 @@
 						%>
 						<button type="button" onclick="Create(event)">Contest</button> <%
  	} else {
- 	if (rst.getString("status").equalsIgnoreCase("VP")) {
+ 	if (rst.getString("status").equalsIgnoreCase("P")) {
  %> Pending<%
  	} else if (rst.getString("status").equalsIgnoreCase("V")) {
  %> Verified <%
@@ -168,7 +168,7 @@ function Create(event){
 	
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			if(this.responseText=='VP'){
+			if(this.responseText=='P'){
 				sta.innerHTML="Verification Pending";
 				}else if(this.responseText=='V'){
 					sta.innerHTML="Verified";

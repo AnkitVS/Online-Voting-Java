@@ -7,11 +7,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/canIns")
 public class canIns extends HttpServlet {
@@ -22,12 +22,12 @@ public class canIns extends HttpServlet {
 		try {
 			Connection connection = DBCon.initializeDatabase();
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into candidate(cid,electid) values(?,?)");
+					.prepareStatement("update candidate set electionid=? where candidateid=?");
 			preparedStatement.setString(1, (String)request.getParameter("cid"));
 			preparedStatement.setString(2, (String)request.getParameter("eid"));
 			preparedStatement.executeUpdate();
 			preparedStatement = connection
-					.prepareStatement("select status from candidate where cid=? and electid=?");
+					.prepareStatement("select status from candidate where candidateid=? and electionid=?");
 			preparedStatement.setString(1, (String)request.getParameter("cid"));
 			preparedStatement.setString(2, (String)request.getParameter("eid"));
 			ResultSet rs =preparedStatement.executeQuery();

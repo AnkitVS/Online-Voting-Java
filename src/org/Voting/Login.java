@@ -6,18 +6,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-		
+
 	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			doPost(request,response);
 		}
@@ -36,17 +36,17 @@ public class Login extends HttpServlet {
 	                	session=request.getSession();
 	                }
 	                if(role.equalsIgnoreCase("Voter"))
-	                {  
+	                {
 	                    session.setAttribute("id",request.getParameter("username"));
 	                	RequestDispatcher rd = request.getRequestDispatcher("/voter-dash.jsp");
 	                	rd.forward(request, response);
 	                }
-	                else if(role.equalsIgnoreCase("Candid")) {  
+	                else if(role.equalsIgnoreCase("Candid")) {
 	                	session.setAttribute("id",request.getParameter("username"));
 	                	RequestDispatcher rd = request.getRequestDispatcher("/candid-dash.jsp");
 	                	rd.forward(request, response);
 	                }
-	                else if(role.equalsIgnoreCase("admin")){ 
+	                else if(role.equalsIgnoreCase("admin")){
 	                	session.setAttribute("id",request.getParameter("username"));
 	                	RequestDispatcher rd = request.getRequestDispatcher("/admin-dash.jsp");
 	                	rd.forward(request, response);

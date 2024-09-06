@@ -7,17 +7,17 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Random;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/createElect")
 public class createElect extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doPost(request, response);
@@ -30,10 +30,10 @@ public class createElect extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		try {
 			Connection connection = DBCon.initializeDatabase();
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into election(name,electid) value (?,?)");
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into election(name,electionid) value (?,?)");
             preparedStatement.setString(1, request.getParameter("elname"));
             Random random = new Random();
-            String id= (((String)request.getParameter("elname")).split(" ", 1))[0]+random.nextInt(1000);;
+            String id= (((String)request.getParameter("elname")).split(" ", 1))[0]+random.nextInt(1000);
             preparedStatement.setString(2, id);
             preparedStatement.executeUpdate();
             RequestDispatcher rd = request.getRequestDispatcher("/admin-dash.jsp");

@@ -7,11 +7,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/votIns")
 public class votIns extends HttpServlet {
@@ -24,12 +24,12 @@ public class votIns extends HttpServlet {
 		try {
 			Connection connection = DBCon.initializeDatabase();
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into voter(voterid,electid) values(?,?)");
-			preparedStatement.setString(1, (String)request.getParameter("vid"));
-			preparedStatement.setString(2, (String)request.getParameter("eid"));
+					.prepareStatement("UPDATE voter SET electionid = ? WHERE voterid = ?;");
+			preparedStatement.setString(1, (String)request.getParameter("eid"));
+			preparedStatement.setString(2, (String)request.getParameter("vid"));
 			preparedStatement.executeUpdate();
 			preparedStatement = connection
-					.prepareStatement("select status from voter where voterid=? and electid=?");
+					.prepareStatement("select status from voter where VoterID=? and electionid=?");
 			preparedStatement.setString(1, (String)request.getParameter("vid"));
 			preparedStatement.setString(2, (String)request.getParameter("eid"));
 			ResultSet rs =preparedStatement.executeQuery();

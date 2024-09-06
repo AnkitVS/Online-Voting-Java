@@ -7,11 +7,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/verVot")
 public class verVot extends HttpServlet {
@@ -29,11 +29,11 @@ public class verVot extends HttpServlet {
 		try {
 			Connection connection = DBCon.initializeDatabase();
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update voter set status='V' where voterid=?");
+					.prepareStatement("update voter set status='V' where VoterID=?");
 			preparedStatement.setString(1, (String) request.getParameter("vid"));
 			preparedStatement.executeUpdate();
 
-			preparedStatement = connection.prepareStatement("select status from voter where voterid=?");
+			preparedStatement = connection.prepareStatement("select status from voter where VoterID=?");
 			preparedStatement.setString(1, (String) request.getParameter("vid"));
 			ResultSet rs = preparedStatement.executeQuery();
 			if (rs.next()) {

@@ -45,18 +45,18 @@
 					PreparedStatement preparedStatement;
 
 					Connection connection = DBCon.initializeDatabase();
-					preparedStatement = connection.prepareStatement("select name,electid from election");
+					preparedStatement = connection.prepareStatement("select name,electionid from election");
 					ResultSet rs = preparedStatement.executeQuery();
 					while (rs.next()) {
 				%>
 				<tr>
 					<td><%=rs.getString("name")%></td>
-					<td><%=rs.getString("electid")%></td>
+					<td><%=rs.getString("electionid")%></td>
 					<td>
 						<%
-							preparedStatement = connection.prepareStatement("select status from voter where voterid=? and electid=?");
+							preparedStatement = connection.prepareStatement("select status from voter where VoterID=? and electionid=?");
 						preparedStatement.setString(1, vid);
-						preparedStatement.setString(2, rs.getString("electid"));
+						preparedStatement.setString(2, rs.getString("electionid"));
 						ResultSet rst = preparedStatement.executeQuery();
 
 						int flag = 0;
@@ -64,7 +64,7 @@
 						%>
 						<button type="button" onclick="Create(event)">Register</button> <%
  	} else {
- 	if (rst.getString("status").equalsIgnoreCase("VP")) {
+ 	if (rst.getString("status").equalsIgnoreCase("P")) {
  %> Pending<%
  	} else if (rst.getString("status").equalsIgnoreCase("V")) {
  %> Verified <%
@@ -164,8 +164,9 @@ function Create(event){
 	xhttp.send();
 	
 	xhttp.onreadystatechange = function() {
+		 console.log("Response:", this.responseText);
 		if (this.readyState == 4 && this.status == 200) {
-			if(this.responseText=='VP'){
+			if(this.responseText=='P'){
 				sta.innerHTML="Verification Pending";
 				}else if(this.responseText=='V'){
 					sta.innerHTML="Verified";

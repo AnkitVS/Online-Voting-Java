@@ -1,15 +1,11 @@
-FROM ubuntu:latest AS build
+# Use the official Tomcat base image
+FROM tomcat:9.0-jdk11
 
-RUN apt-get update
-RUN apt-get install openjdk-17-jdk -y
-COPY . .
+# Copy the WAR file to Tomcat's webapps directory
+COPY target/OnlineVotingApp.war /usr/local/tomcat/webapps/
 
-RUN ./gradlew bootJar --no-daemon
-
-FROM openjdk:17-jdk-slim
-
+# Expose the port Tomcat is running on
 EXPOSE 8080
 
-COPY --from=build /build/libs/demo-1.jar app.jar
-
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Start Tomcat
+CMD ["catalina.sh", "run"]

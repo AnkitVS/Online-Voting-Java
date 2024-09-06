@@ -51,9 +51,9 @@ if(session==null){
 				<span>
 					<ul>
 						<li><a href="https://github.com/AnkitVS"><i
-								class="fab fa-github-alt"></i></a></li>
-						<li><a href="https://www.linkedin.com/in/ankit-ved-ashm/"><i
-								class="fab fa-linkedin-in"></i></a></li>
+								class="fa fa-github-alt"></i></a></li>
+						<li><a href="https://www.linkedin.com/in/ankit-ved/"><i
+								class="fa fa-linkedin-in"></i></a></li>
 					</ul>
 				</span>
 			</div>

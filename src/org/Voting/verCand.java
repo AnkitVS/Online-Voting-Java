@@ -7,11 +7,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/verCand")
 public class verCand extends HttpServlet {
@@ -26,12 +26,12 @@ public class verCand extends HttpServlet {
 		try {
 			Connection connection = DBCon.initializeDatabase();
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update candidate set status='V' where cid=?");
+					.prepareStatement("update candidate set status='V' where CandidateID=?");
 			preparedStatement.setString(1, (String)request.getParameter("cid"));
 			preparedStatement.executeUpdate();
-			
+
 			preparedStatement = connection
-					.prepareStatement("select status from candidate where cid=?");
+					.prepareStatement("select status from candidate where CandidateID=?");
 			preparedStatement.setString(1, (String)request.getParameter("cid"));
 			ResultSet rs =preparedStatement.executeQuery();
 			if(rs.next()) {
@@ -42,7 +42,7 @@ public class verCand extends HttpServlet {
 			// TODO Auto-generated catch block
 			out.println(e.getMessage());
 		}
-		
+
 	}
 
 }

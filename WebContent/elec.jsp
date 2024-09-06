@@ -47,10 +47,40 @@
 
 				<tr>
 					<td><%=rs.getString("name")%></td>
-					<td><%=rs.getString("electid")%></td>
-					<td><%=rs.getString("totalvotes")%></td>
-					<td><%=rs.getString("voters")%></td>
-					<td><%=rs.getString("candidates")%></td>
+					<td><%=rs.getString("electionid")%></td>
+					<td><%
+					PreparedStatement ps = connection.prepareStatement("select count(*) from voter where electionid=?");
+					ps.setString(1, rs.getString("electionid"));
+					ResultSet prs=ps.executeQuery();
+					if (prs.next()) {
+					    int voterCount = prs.getInt(1);
+					    out.print(voterCount);
+					}
+					prs.close();
+					ps.close();
+					%></td>
+					<td><%
+					ps = connection.prepareStatement("select count(*) from voter where electionid=?");
+					ps.setString(1, rs.getString("electionid"));
+					prs=ps.executeQuery();
+					if (prs.next()) {
+					    int voterCount = prs.getInt(1);
+					    out.print(voterCount);
+					}
+					prs.close();
+					ps.close();
+%></td>
+					<td><%
+					ps = connection.prepareStatement("select count(*) from candidate where electionid=?");
+					ps.setString(1, rs.getString("electionid"));
+					prs=ps.executeQuery();
+					if (prs.next()) {
+					    int voterCount = prs.getInt(1);
+					    out.print(voterCount);
+					}
+					prs.close();
+					ps.close();
+%></td>
 					<td>
 						<%
 							if (rs.getString("status").equalsIgnoreCase("true"))

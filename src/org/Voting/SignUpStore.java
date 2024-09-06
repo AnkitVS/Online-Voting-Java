@@ -6,12 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Random;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/SignUpStore")
 public class SignUpStore extends HttpServlet {
@@ -40,7 +40,7 @@ public class SignUpStore extends HttpServlet {
             preparedStatement.setString(5, request.getParameter("dob"));
             preparedStatement.setString(6, request.getParameter("email"));
             Random random = new Random();
-            String id= (request.getParameter("fname")).split(" ",1)[0]+random.nextInt(1000);;
+            String id= (request.getParameter("fname")).split(" ",1)[0]+random.nextInt(1000);
             preparedStatement.setString(7, id);
             preparedStatement.executeUpdate();
             RequestDispatcher rd = request.getRequestDispatcher("/reg.html");
